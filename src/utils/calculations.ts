@@ -28,11 +28,15 @@ export const calculateDutyTime = (sectors: Sector[]): number => {
   const earliestTakeoff = Math.min(...takeoffTimes);
   const latestLanding = Math.max(...landingTimes);
   
-  const dutyTimeMs = latestLanding - earliestTakeoff;
+  // Add 45 minutes to earliest takeoff (duty start)
+  const dutyStart = earliestTakeoff + (45 * 60 * 1000);
+  // Add 15 minutes to latest landing (duty end)
+  const dutyEnd = latestLanding + (15 * 60 * 1000);
+  
+  const dutyTimeMs = dutyEnd - dutyStart;
   const dutyTimeHours = dutyTimeMs / (1000 * 60 * 60);
   
-  // Add 1 hour as per requirements
-  return dutyTimeHours + 1;
+  return Math.max(0, dutyTimeHours); // Ensure non-negative
 };
 
 export const getEntriesInDateRange = (
