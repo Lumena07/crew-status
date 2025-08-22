@@ -23,7 +23,6 @@ const TechlogEntryForm: React.FC<TechlogEntryFormProps> = ({ onEntryAdded }) => 
       arrival: '',
       takeoffTime: '',
       landingTime: '',
-      route: '',
       flightTime: 0,
     },
   ]);
@@ -48,7 +47,6 @@ const TechlogEntryForm: React.FC<TechlogEntryFormProps> = ({ onEntryAdded }) => 
       arrival: '',
       takeoffTime: '',
       landingTime: '',
-      route: '',
       flightTime: 0,
     };
     setSectors(prev => [...prev, newSector]);
@@ -139,7 +137,6 @@ const TechlogEntryForm: React.FC<TechlogEntryFormProps> = ({ onEntryAdded }) => 
       arrival: '',
       takeoffTime: '',
       landingTime: '',
-      route: '',
       flightTime: 0,
     }]);
 
@@ -313,19 +310,6 @@ const TechlogEntryForm: React.FC<TechlogEntryFormProps> = ({ onEntryAdded }) => 
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Route
-                    </label>
-                    <input
-                      type="text"
-                      value={sector.route}
-                      onChange={(e) => handleSectorChange(index, 'route', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="e.g., Direct"
-                    />
-                  </div>
-                  
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Flight Time (hours)

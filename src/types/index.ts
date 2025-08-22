@@ -4,7 +4,6 @@ export interface Sector {
   arrival: string;
   takeoffTime: string;
   landingTime: string;
-  route: string;
   flightTime: number; // in hours
 }
 

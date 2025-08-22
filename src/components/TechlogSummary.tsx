@@ -312,12 +312,6 @@ const TechlogSummary: React.FC<TechlogSummaryProps> = ({ refreshTrigger }) => {
                                      <span className="text-gray-600">Landing:</span>
                                      <span className="ml-2 font-medium">{sector.landingTime}</span>
                                    </div>
-                                   {sector.route && (
-                                     <div className="md:col-span-2">
-                                       <span className="text-gray-600">Route:</span>
-                                       <span className="ml-2 font-medium">{sector.route}</span>
-                                     </div>
-                                   )}
                                  </div>
                                </div>
                              ))}
