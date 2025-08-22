@@ -41,9 +41,10 @@ const TechlogEntryForm: React.FC<TechlogEntryFormProps> = ({ onEntryAdded }) => 
   };
 
   const handleAddSector = () => {
+    const lastSector = sectors[sectors.length - 1];
     const newSector: Sector = {
       id: Date.now().toString(),
-      departure: '',
+      departure: lastSector.arrival || '',
       arrival: '',
       takeoffTime: '',
       landingTime: '',
@@ -226,15 +227,8 @@ const TechlogEntryForm: React.FC<TechlogEntryFormProps> = ({ onEntryAdded }) => 
 
         {/* Sectors */}
         <div>
-          <div className="flex justify-between items-center mb-4">
+          <div className="mb-4">
             <h3 className="text-lg font-semibold text-gray-800">Sectors</h3>
-            <button
-              type="button"
-              onClick={handleAddSector}
-              className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
-            >
-              Add Sector
-            </button>
           </div>
           
           <div className="space-y-4">
@@ -330,10 +324,17 @@ const TechlogEntryForm: React.FC<TechlogEntryFormProps> = ({ onEntryAdded }) => 
           </div>
         </div>
 
-        <div className="flex justify-end">
+        <div className="flex justify-end space-x-4">
+          <button
+            type="button"
+            onClick={handleAddSector}
+            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Add Sector
+          </button>
           <button
             type="submit"
-            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
           >
             Submit Techlog Entry
           </button>
